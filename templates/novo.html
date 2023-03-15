@@ -1,0 +1,36 @@
+{% extends "template.html" %}
+{% block conteudo %}
+                <form action="{{ url_for('criar') }}", method="post">
+                    <fieldset>
+                    <div class="form-group">
+                        <label for="id">ID</label>
+                        <input type="text" id="id" name="id" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" name="cpf" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="text" id="email" name="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Tel</label>
+                        <input type="text" id="phone" name="phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="created">Created</label>
+                        <input type="date" id="created" name="created" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="updated">Updated</label>
+                        <input type="date" id="updated" name="updated" class="form-control">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+                    </fieldset>
+                </form>
+{% endblock %}
