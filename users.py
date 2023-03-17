@@ -25,11 +25,11 @@ class Users:
         self.nickname=nickname
         self.senha=senha
 
-user1 = Users("Igor ALbuquerque", "VulgoRato", "123")
-user2 = Users("Zé Zé", "zeze", "2105")
-user3 = Users("João João", "JaoJao", "2050")
-user4 = Users("Rafa Lima", "RafinhaRafa", "2002")
-user5 = Users("Caio Café", "Cafe06", "0510")
+user1 = Users("Guest", "Guest", "1234")
+user2 = Users("Guest", "Guest", "1234")
+user3 = Users("Guest", "Guest", "1234")
+user4 = Users("Guest", "Guest", "1234")
+user5 = Users("Guest", "Guest", "1234")
 
 usuarios = { user1.nickname : user1,
              user2.nickname : user2,
@@ -53,8 +53,6 @@ def novo():
     if 'usuario_logado' not in session or session['usuario_logado'] == None:
         return redirect(url_for('login', proxima=url_for('novo')))
     return render_template('novo.html', title='Novo usuário')
-
-# Até aqui OK
 
 @app.route('/criar', methods=['POST',])
 def criar():
@@ -95,11 +93,9 @@ def logout():
     session['usuario_logado'] = None
     flash('Usuário deslogado.')
     return redirect(url_for('index'))
-# Tentar criar um botão de Logout (Ver no projeto do CurriculoLandingPage e tentar usar a mesma tag semântica para criar o botão 'Logout' que direcione para o endereço '/')
 
-
-# Criar uma rota que direcione para as páginas do arquivo orders.py
-# Ou tentar criar tudo no mesmo arquivo
+# Criar um botão de Logout
+# Criar uma rota que direcione para as páginas do arquivo orders.py que será criado nesse projeto
 
 
 app.run(debug=True)
