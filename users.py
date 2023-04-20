@@ -25,11 +25,11 @@ class Users:
         self.nickname=nickname
         self.senha=senha
 
-user1 = Users("Guest", "Guest", "1234")
-user2 = Users("Guest", "Guest", "1234")
-user3 = Users("Guest", "Guest", "1234")
-user4 = Users("Guest", "Guest", "1234")
-user5 = Users("Guest", "Guest", "1234")
+user1 = Users("Guest", "guest", "1234")
+user2 = Users("Guest", "guest", "1234")
+user3 = Users("Guest", "guest", "1234")
+user4 = Users("Guest", "guest", "1234")
+user5 = Users("Guest", "guest", "1234")
 
 usuarios = { user1.nickname : user1,
              user2.nickname : user2,
