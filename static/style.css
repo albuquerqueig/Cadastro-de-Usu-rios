@@ -1,3 +1,11 @@
+header {
+  display: inline-block;
+  width: 100%;
+  top: 0;
+  font-size: 50px;
+  color: #ffffff;
+}
+
 body {
     padding: 50px;
     margin: 0;
@@ -11,7 +19,8 @@ body {
   }
   
     h1 {
-      font-size: 36px;
+      font-size: 35px;
+      color: #ffffff;
     }
     
     p {
@@ -42,12 +51,25 @@ body {
       width: 200px;
     }
 
-    #form-control {
+    .form-control {
       display: inline-block;
-      width: 25px;
+      width: 250px;
+      height: auto;
       padding: 10px;
-      background-color: #bd93f9;
-      color: #f8f8f2;
+      background-color: #ffffff;
+      color: #000000;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .form-control_new {
+      margin: 5px;
+      display: inline-block;
+      width: 500px;
+      height: auto;
+      padding: 10px;
+      background-color: #ffffff;
+      color: #000000;
       border-radius: 5px;
       cursor: pointer;
     }
@@ -66,19 +88,37 @@ body {
     }
     
     button {
-      background-color: #bd93f9;
+      background-color: #12ff61;
       font-family: 'Courier New', Courier, monospace;
       font-size: 16px;
       color: #f8f8f2;
+      font-weight: bold;
       padding: 10px 15px;
       border: none;
       border-radius: 5px;
       margin-top: 20px;
       cursor: pointer;
     }
+
+    .btn-novo {
+      display: inline-block;
+      padding: 6px 12px;
+      margin-bottom: 0;
+      font-size: 14px;
+      font-weight: normal;
+      line-height: 1.42857143;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      color: #ffffff;
+      background-color: #12ff61;
+    }    
     
     button:hover {
-      background-color: #6e40aa;
+      background-color: #36ff79;
     }
     
     input[type="file"] {
@@ -87,6 +127,7 @@ body {
     
     label {
       display: inline-block;
+      width: 100px;
       padding: 10px 15px;
       background-color: #bd93f9;
       color: #f8f8f2;
@@ -115,25 +156,19 @@ body {
       margin-top: 20px;
       cursor: pointer;
     }
-    
-  /* Estilo para a mensagem no rodapé */
-  .message {
+
+  footer {
+    background-color: #ffffff;
     position: fixed;
-    align-items: center;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50px;
-    background-color: #282a36;
+    height: 20px;
     color: #ff005d;
-    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
     white-space: nowrap;
     overflow: hidden;
-    animation: marquee 15s linear infinite;
-  }
-  
-  /* Estilo para a animação da mensagem */
-  @keyframes marquee {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
   }

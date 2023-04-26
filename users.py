@@ -45,7 +45,7 @@ app.secret_key = '21052002'
 # Criando página inicial (Será a página home de quando estivermos logados - Trará os dados de: # Campos)
 @app.route('/')
 def index():
-    return render_template('list.html', title='Users', users=list)
+    return render_template('login.html')
 
 # Página de novos dados (A junção dessas duas páginas ("/novo" e "/criar") trará o input dos dados de: # Campos que seá mostrado em '/' = index = home)
 @app.route('/novo')
@@ -82,7 +82,7 @@ def autenticar():
             session['usuario_logado'] = usuario.nickname
             flash(usuario.nickname + ' logado!')
             proxima_pagina = request.form['proxima']
-            return redirect(proxima_pagina)
+            return redirect(url_for('novo'))
     else:
         flash('Usuário ou senha inválidos!')
         return redirect(url_for('login'))
@@ -92,10 +92,10 @@ def autenticar():
 def logout():
     session['usuario_logado'] = None
     flash('Usuário deslogado.')
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
 # Criar um botão de Logout
-# Criar uma rota que direcione para as páginas do arquivo orders.py que será criado nesse projeto
 
+# Criar uma rota que direcione para as páginas do arquivo orders.py que será criado nesse projeto
 
 app.run(debug=True)
