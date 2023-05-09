@@ -3,7 +3,6 @@
 
 from flask import Flask, render_template, request, redirect, session, flash, url_for
 
-
 class Info:
     def __init__(self, id, name, cpf, email, phone, created, updated):
         self.id=id
@@ -17,7 +16,7 @@ class Info:
 info1 = Info('1', 'João', '12345678900', 'joao@hotmail.com', '(14) 98888-8888', '21/05/2022', '20/02/2023')
 info2 = Info('2', 'José', '12345678901', 'jose@hotmail.com', '(14) 98888-8889', '21/06/2022', '20/03/2023')
 info3 = Info('3', 'Pedro', '12345678902', 'pedro@hotmail.com', '(14) 98888-8810', '21/07/2022', '20/04/2023')
-list = [info1, info2, info3]
+info_lista = [info1, info2, info3]
 
 class Users:
     def __init__(self, nome, nickname, senha):
@@ -28,18 +27,14 @@ class Users:
 user1 = Users("Guest", "guest", "1234")
 user2 = Users("Guest", "guest", "1234")
 user3 = Users("Guest", "guest", "1234")
-user4 = Users("Guest", "guest", "1234")
-user5 = Users("Guest", "guest", "1234")
 
 usuarios = { user1.nickname : user1,
              user2.nickname : user2,
-             user3.nickname : user3,
-             user4.nickname : user4,
-             user5.nickname : user5}
+             user3.nickname : user3}
 
 
 app = Flask(__name__)
-app.secret_key = '21052002'
+app.secret_key = '21051999'
 
 
 # Criando página inicial (Será a página home de quando estivermos logados - Trará os dados de: # Campos)
@@ -54,18 +49,22 @@ def novo():
         return redirect(url_for('login', proxima=url_for('novo')))
     return render_template('novo.html', title='Novo usuário')
 
-@app.route('/criar', methods=['POST',])
+@app.route('/criar', methods=['POST'])
 def criar():
-     id = request.form['id']
-     nome = request.form['nome']
-     cpf = request.form['cpf']
-     email = request.form['email']
-     phone = request.form['phone']
-     created = request.form['created']
-     updated = request.form['updated']
-     info = Info(id, nome, cpf, email, phone, created, updated)
-     list.append(info)
-     return redirect(url_for('index'))
+    id = request.form['id']
+    nome = request.form['nome']
+    cpf = request.form['cpf']
+    email = request.form['email']
+    phone = request.form['phone']
+    created = request.form['created']
+    updated = request.form['updated']
+    info = Info(id, nome, cpf, email, phone, created, updated)
+    info_lista.append(info)
+    return redirect(url_for('lista'))
+
+@app.route('/lista')
+def lista():
+    return render_template('lista.html', users=info_lista)
 
 # Página de validação de dados de acesso (Posso ver a possibilidade de retirar a página de login)
 @app.route('/login')
@@ -94,8 +93,6 @@ def logout():
     flash('Usuário deslogado.')
     return redirect(url_for('login'))
 
-# Criar um botão de Logout
+app.run(debug=True)
 
 # Criar uma rota que direcione para as páginas do arquivo orders.py que será criado nesse projeto
-
-app.run(debug=True)
